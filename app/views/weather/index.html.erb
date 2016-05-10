@@ -1,0 +1,32 @@
+
+<%= form_tag "/", method: :get do %>
+
+<div>
+  <%= label_tag :city %>
+  <%= text_field_tag :city %>
+</div>
+<div>
+  <%= label_tag :state %>
+  <%= text_field_tag :state %>
+</div>
+<%= submit_tag "Get weather for this place!" %>
+
+<% end %>
+
+<h1><%= @location_and_time %></h1>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>High</th>
+    <th>Low</th>
+  </tr>
+  <% @forecasts.each do |forecast| %>
+  <tr>
+    <td><%= forecast["date"] %></td>
+    <td><%= forecast["high"] %></td>
+    <td><%= forecast["low"] %></td>
+  </tr>
+  <% end %>
+
+
+</table>
